@@ -10,14 +10,24 @@ body {
     font-family: "MaruBuri-Regular";
 }
 
-#start_modal {
+#startModal {
     display: flex;
     align-items: center;
 }
 
-.modal_text {
+.modalText {
     position: relative;
     left: 50%;
     font-size: 50px;
     border-right: 2px solid black;
+}
+
+#backgroundPicture {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+
+    margin: 0px;
+    padding: 0px;
 }

@@ -2,9 +2,10 @@ const setBodySize = () => {
     const body = document.body;
     body.style.width = window.innerWidth + "px";
     body.style.minHeight = window.innerHeight + "px";
-    const start_modal = document.getElementById("start_modal");
-    start_modal.style.width = window.innerWidth + "px";
-    start_modal.style.minHeight = window.innerHeight + "px";
+    const startModal = document.getElementById("startModal");
+    // console.log(startModal);
+    startModal.style.width = window.innerWidth + "px";
+    startModal.style.minHeight = window.innerHeight + "px";
 };
 
 const blurString = (element, time) => {
@@ -38,10 +39,35 @@ const setModalText = (element, nextLine) => {
     lazyTyping(element, splitString);
 };
 
-window.onload = () => {
-    const modalText = document.getElementById("modal_text");
-    const modalText2 = document.getElementById("modal_text2");
+const setCanvas = () => {
+    const backgroundPicture = document.createElement("canvas");
+    backgroundPicture.id = "backgroundPicture";
+    console.log(window.innerHeight);
+    backgroundPicture.width = window.innerWidth;
+    backgroundPicture.height = window.innerHeight;
+    document.body.appendChild(backgroundPicture);
 
-    setInterval(() => setBodySize());
+    const context = backgroundPicture.getContext("2d");
+
+    backgroundPicture.onclick = (event) => {
+        const xPos = event.clientX;
+        const yPos = event.clientY;
+        console.log(context);
+        context.fillStyle = "red";
+        context.beginPath();
+        console.log(xPos, yPos);
+        context.arc(xPos, yPos, 30, 0, 2 * Math.PI, false);
+        context.stroke();
+    };
+};
+
+window.onresize = () => {
+    setBodySize();
+};
+
+window.onload = () => {
+    setBodySize();
+    const modalText = document.getElementById("modalText");
     setModalText(modalText, "안녕하세요!");
+    setCanvas();
 };
