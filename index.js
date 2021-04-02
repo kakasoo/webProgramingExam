@@ -14,28 +14,34 @@ const blurString = (element, time) => {
         } else {
             element.style.color = "transparent";
         }
-    }, 50);
+    }, 80);
 
-    setTimeout(() => clearInterval(id), time);
+    setTimeout(() => {
+        element.style.color = "black";
+        clearInterval(id);
+    }, time * 1.5);
 };
 
-const lazyPrint = (element, splitString) => {
+const lazyTyping = (element, splitString) => {
     for (let i = 0; i < splitString.length; i++) {
         setTimeout(() => {
-            console.log(splitString[i]);
             element.textContent += splitString[i];
-        }, 100 * i);
+            const textWidth = element.offsetWidth;
+            element.style.left = `calc(50% - ${textWidth / 2}px)`;
+        }, 200 * i);
     }
     blurString(element, 100 * splitString.length);
 };
 
-const setModal = (nextLine) => {
-    const modalText = document.getElementById("modal_text");
+const setModalText = (element, nextLine) => {
     const splitString = nextLine.split("");
-    lazyPrint(modalText, splitString);
+    lazyTyping(element, splitString);
 };
 
 window.onload = () => {
+    const modalText = document.getElementById("modal_text");
+    const modalText2 = document.getElementById("modal_text2");
+
     setInterval(() => setBodySize());
-    setModal("안녕하세요");
+    setModalText(modalText, "안녕하세요!");
 };

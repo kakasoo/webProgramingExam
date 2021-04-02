@@ -1,5 +1,13 @@
+@font-face {
+    font-family: "MaruBuri-Regular";
+    src: url("./MaruBuri-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0px;
+    font-family: "MaruBuri-Regular";
 }
 
 #start_modal {
@@ -7,13 +15,9 @@ body {
     align-items: center;
 }
 
-#modal_text {
-    width: 100%;
-    text-align: center;
+.modal_text {
+    position: relative;
+    left: 50%;
     font-size: 50px;
-    z-index: 1;
-}
-
-#start_modal :hover {
-    color: red;
+    border-right: 2px solid black;
 }
