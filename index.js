@@ -12,10 +12,17 @@ const setBodySize = () => {
 };
 
 const blurString = (element, time) => {
+    let subDelay = 0;
     const id = setInterval(() => {
         if (element.style.color === "transparent") {
             element.style.color = "black";
         } else {
+            if (subDelay !== 3) {
+                subDelay++;
+                return;
+            }
+
+            subDelay = 0;
             element.style.color = "transparent";
         }
     }, 80);
@@ -23,23 +30,54 @@ const blurString = (element, time) => {
     setTimeout(() => {
         element.style.color = "black";
         clearInterval(id);
-    }, time * 1.5);
+    }, time);
 };
 
 const lazyTyping = (element, splitString) => {
-    for (let i = 0; i < splitString.length; i++) {
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < splitString.length; i++) {
+            setTimeout(() => {
+                element.textContent += splitString[i];
+                const textWidth = element.offsetWidth;
+                element.style.left = `calc(50% - ${textWidth / 2}px)`;
+            }, 200 * i);
+        }
+        blurString(element, 200 * splitString.length);
+
         setTimeout(() => {
-            element.textContent += splitString[i];
-            const textWidth = element.offsetWidth;
-            element.style.left = `calc(50% - ${textWidth / 2}px)`;
-        }, 200 * i);
-    }
-    blurString(element, 100 * splitString.length);
+            return resolve();
+        }, 200 * splitString.length);
+    });
 };
 
-const setModalText = (element, nextLine) => {
+const clearTyping = (element, splitString) => {
+    return new Promise((resolve, reject) => {
+        const clearingString = [...splitString];
+        for (let i = 0; i < splitString.length; i++) {
+            setTimeout(() => {
+                clearingString.pop();
+                element.textContent = clearingString.join("");
+            }, 200 * i);
+        }
+        blurString(element, 200 * splitString.length);
+
+        setTimeout(() => {
+            return resolve();
+        }, 200 * splitString.length * 1.4);
+    });
+};
+
+const setModalText = async (element, nextLine) => {
     const splitString = nextLine.split("");
-    lazyTyping(element, splitString);
+    await lazyTyping(element, splitString);
+    await clearTyping(element, splitString);
+};
+
+const showText = async () => {
+    await setModalText(modalText, "안녕하세요!");
+    await setModalText(modalText, "안녕하다고요!");
+    await setModalText(modalText, "비동기 프로그래밍이라 쉽지가 않네요.");
+    await setModalText(modalText, "모두 해피 자바스크립트!");
 };
 
 const drawLazyCircle = (context, xPos, yPos, radius = 30, delay = 0) => {
@@ -84,6 +122,6 @@ window.onresize = () => {
 window.onload = () => {
     setBodySize();
     const modalText = document.getElementById("modalText");
-    setModalText(modalText, "안녕하세요!");
+    showText();
     setCanvas();
 };
