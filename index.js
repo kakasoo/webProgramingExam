@@ -3,9 +3,12 @@ const setBodySize = () => {
     body.style.width = window.innerWidth + "px";
     body.style.minHeight = window.innerHeight + "px";
     const startModal = document.getElementById("startModal");
-    // console.log(startModal);
     startModal.style.width = window.innerWidth + "px";
     startModal.style.minHeight = window.innerHeight + "px";
+
+    const backgroundPicture = document.createElement("canvas");
+    backgroundPicture.style.width = window.innerWidth + "px";
+    backgroundPicture.style.height = window.innerHeight + "px";
 };
 
 const blurString = (element, time) => {
@@ -39,25 +42,38 @@ const setModalText = (element, nextLine) => {
     lazyTyping(element, splitString);
 };
 
+const drawLazyCircle = (context, xPos, yPos, radius = 30, delay = 0) => {
+    setTimeout(() => {
+        context.beginPath();
+        context.arc(
+            xPos,
+            yPos,
+            radius,
+            0,
+            ((2 * Math.PI) / 100) * delay,
+            false
+        );
+        context.stroke();
+    }, 10);
+};
+
+const getRandomColor = () => Math.random() * 255;
+
 const setCanvas = () => {
     const backgroundPicture = document.createElement("canvas");
     backgroundPicture.id = "backgroundPicture";
-    console.log(window.innerHeight);
     backgroundPicture.width = window.innerWidth;
     backgroundPicture.height = window.innerHeight;
     document.body.appendChild(backgroundPicture);
 
     const context = backgroundPicture.getContext("2d");
-
     backgroundPicture.onclick = (event) => {
         const xPos = event.clientX;
         const yPos = event.clientY;
-        console.log(context);
-        context.fillStyle = "red";
-        context.beginPath();
-        console.log(xPos, yPos);
-        context.arc(xPos, yPos, 30, 0, 2 * Math.PI, false);
-        context.stroke();
+        context.strokeStyle = `rgb(${getRandomColor()},${getRandomColor()},${getRandomColor()})`;
+        for (let i = 0; i <= 100; i++) {
+            drawLazyCircle(context, xPos, yPos, 30, i);
+        }
     };
 };
 
