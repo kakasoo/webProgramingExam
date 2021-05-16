@@ -126,7 +126,7 @@ a {
 
 .itemBox {
     width: calc(100% / 6);
-    padding: 5px;
+    padding: 3px;
     min-height: 100%;
     border: 5px solid #efefef;
 }
@@ -241,7 +241,7 @@ a {
 .drink {
     font-family: "CookieRunOTF-Bold";
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: red;
 }
