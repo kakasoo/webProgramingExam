@@ -15,15 +15,15 @@ class App {
         this.input.max = 6000;
         document.body.appendChild(this.input);
 
-        document.body.style.background = "black";
+        document.body.style.background = "rgb(120,120,120)";
 
         window.addEventListener("resize", this.resize.bind(this), false);
         this.resize();
-        this.snow = [];
+        this.rain = [];
 
         const maxNum = 6000;
-        const speed = 1;
-        const min = 1;
+        const speed = 20;
+        const min = 14;
 
         for (let i = 0; i < maxNum; i++) {
             const x = Math.random() * screen.width;
@@ -34,7 +34,7 @@ class App {
             sp = sp < min ? min : sp;
 
             const flake = new Flake(x, y, size, t, sp);
-            this.snow.push(flake);
+            this.rain.push(flake);
         }
 
         requestAnimationFrame(this.animate.bind(this));
@@ -54,7 +54,10 @@ class App {
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
         for (let i = 0; i < this.input.value; i++) {
-            const flake = this.snow[i];
+            const flake = this.rain[i];
+            if (this.input > 3000) {
+                flake.speed += 20;
+            }
             flake.draw(this.ctx);
         }
     }

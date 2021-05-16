@@ -138,6 +138,7 @@ a {
 
 .up-item {
     text-align: center;
+    overflow: hidden;
 
     width: 100%;
     height: 50%;

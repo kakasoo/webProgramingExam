@@ -1,0 +1,12 @@
+.pushedButton {
+    animation: pushed 1.3s;
+}
+
+@keyframes pushed {
+    from {
+        background-color: red;
+    }
+    to {
+        background-color: purple;
+    }
+}
