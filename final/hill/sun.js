@@ -1,4 +1,4 @@
-export class Sun {
+class Sun {
     constructor(color, speed, startX, startY) {
         this.color = color;
         this.speed = speed;

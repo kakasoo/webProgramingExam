@@ -1,6 +1,3 @@
-import { Hill } from "./hill.js";
-import { Sun } from "./sun.js";
-
 class App {
     constructor() {
         this.canvas = document.createElement("canvas");

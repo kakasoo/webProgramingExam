@@ -1,4 +1,4 @@
-export class Hill {
+class Hill {
     constructor(color, speed, total) {
         this.color = color;
         this.speed = speed;

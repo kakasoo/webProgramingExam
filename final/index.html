@@ -8,7 +8,8 @@
             content="width=device-width, intital-sacle=1, maximum-scale=1"
         />
         <title>kakasoo's homepage</title>
-        <link rel="stylesheet" href="/index.css" />
+        <script src="./index.js"></script>
+        <link rel="stylesheet" href="./index.css" />
     </head>
     <body>
         <div id="vending">
@@ -17,16 +18,26 @@
                 <div id="vending-section-border">
                     <div id="vending-section">
                         <div class="newsstand">
-                            <div class="itemBox">
+                            <div class="itemBox" onclick="clickDrink('hill')">
                                 <div class="up-item">
-                                    <a class="drink" href="hill/index.html"
+                                    <a
+                                        id="hill"
+                                        class="drink"
+                                        href="hill/index.html"
                                         >hill</a
                                     >
                                 </div>
                                 <div class="down-item"></div>
                             </div>
                             <div class="itemBox">
-                                <div class="up-item"></div>
+                                <div class="up-item">
+                                    <a
+                                        id="coffee"
+                                        class="drink"
+                                        href="coffee/index.html"
+                                        >coffee</a
+                                    >
+                                </div>
                                 <div class="down-item"></div>
                             </div>
                             <div class="itemBox">
