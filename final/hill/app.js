@@ -13,7 +13,8 @@ class App {
             new Hill("#ff4674", 1.4, 6),
         ];
 
-        this.sun = new Sun("#FFA800", 1);
+        this.sun = new Sun("#FFA800", 1.4, 0, 100);
+        this.moon = new Sun("#00aaFF", 1.4, -1000, 100);
 
         window.addEventListener("resize", this.resize.bind(this), false);
         this.resize();
@@ -44,6 +45,18 @@ class App {
         }
 
         this.sun.draw(this.ctx);
+        this.moon.draw(this.ctx);
+        if (this.moon.curX >= 0 && this.moon.curX <= this.stageWidth / 2) {
+            // document.body.style.background = "rgb(0,53,29)";
+            document.body.className = "night";
+            this.sun.curX = -60;
+        }
+
+        if (this.sun.curX >= 0 && this.sun.curX <= this.stageWidth / 2) {
+            // document.body.style.background = "#ffcaec";
+            document.body.className = "morning";
+            this.moon.curX = -60;
+        }
     }
 }
 
