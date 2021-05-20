@@ -75,9 +75,9 @@ const setModalText = async (element, nextLine) => {
 
 const showText = async () => {
     await setModalText(modalText, "안녕하세요!");
-    await setModalText(modalText, "안녕하다고요!");
-    await setModalText(modalText, "비동기 프로그래밍이라 쉽지가 않네요.");
-    await setModalText(modalText, "모두 해피 자바스크립트!");
+    await setModalText(modalText, "웹 프로그래밍 수업을 듣는 강경수입니다.");
+    await setModalText(modalText, "드디어 종강이 다가오네요!");
+    await setModalText(modalText, "벌써부터 행복합니다.");
 };
 
 const drawLazyCircle = (context, xPos, yPos, radius = 30, delay = 0) => {

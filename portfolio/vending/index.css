@@ -128,6 +128,7 @@ a {
     width: calc(100% / 6);
     padding: 3px;
     min-height: 100%;
+    max-width: calc(100% / 6);
     border: 5px solid #efefef;
 }
 

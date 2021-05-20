@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="./public/stylesheets/calender.css" />
         <link rel="stylesheet" href="./public/stylesheets/aside.css" />
         <link rel="stylesheet" href="./public/stylesheets/iFrame/common.css" />
+        <link rel="stylesheet" href="./public/stylesheets/iFrame/stack.css" />
     </head>
     <body>
         <header>
@@ -58,11 +59,18 @@
             <div id="verticalLine"></div>
             <div id="page" style="width: 100%; height: 100%">
                 <div id="common">
-                    <div id="basePage">hello, world!</div>
-                    <div>
-                        <div class="additional">this is kakasoo's blog</div>
-                    </div>
-                    <div class="additional">created from 2021.05.20</div>
+                    <p>languages</p>
+                    <div id="languages"></div>
+                    <hr />
+                    <p>backend</p>
+                    <div id="backend"></div>
+                    <hr />
+                    <p>frontend</p>
+                    <div id="frontend"></div>
+                    <hr />
+                    <p>devops</p>
+                    <div id="devops"></div>
+                    <hr />
                 </div>
             </div>
         </section>
@@ -70,8 +78,8 @@
             <p></p>
             © 2021.05.20 made by kakasu | JS is mine, JS is main, JS is meme!
         </div>
-        <script src="./public/javascripts/iFrameControl/splash.js"></script>
         <script src="./public/javascripts/util.js"></script>
+        <script src="./public/javascripts/iFrameControl/stack.js"></script>
         <script src="./public/javascripts/viewControl/calender.js"></script>
         <script src="./public/javascripts/viewControl/controlCalender.js"></script>
         <script src="./public/javascripts/viewControl/changeIndex.js"></script>

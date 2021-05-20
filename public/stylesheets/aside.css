@@ -1,0 +1,30 @@
+#contentIndex > div > p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+}
+
+aside {
+    min-width: 180px;
+}
+
+#contentIndex > div > #writing {
+    margin: 10px 0 10px 0;
+
+    font-family: "BMDOHYEON";
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "BMDOHYEON";
+    src: url("../fonts/BMDOHYEON.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "DOSMyungjo";
+    src: url("../fonts/DOSMyungjo.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}

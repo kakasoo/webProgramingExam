@@ -1,0 +1,86 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#common > p {
+    color: black;
+    text-shadow: 0 0 2px crimson;
+    font-size: 28px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+p {
+    margin: 3px;
+}
+
+#languages {
+    display: flex;
+}
+
+#backend {
+    display: flex;
+}
+
+#frontend {
+    display: flex;
+}
+
+#devops {
+    display: flex;
+}
+
+@font-face {
+    font-family: "BMDOHYEON";
+    src: url("../../fonts/BMDOHYEON.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.languages {
+    min-width: 115px;
+    min-height: 115px;
+    max-width: 115px;
+    max-height: 115px;
+}
+
+.point {
+    display: flex;
+    border: 1px solid black;
+    height: 10px;
+}
+
+.green {
+    border: 1px solid black;
+    width: 20%;
+    height: 100%;
+    background-color: green;
+}
+
+.greenyellow {
+    border: 1px solid black;
+    width: 20%;
+    height: 100%;
+    background-color: greenyellow;
+}
+
+.red {
+    border: 1px solid black;
+    width: 20%;
+    height: 100%;
+    background-color: red;
+}
+
+.black {
+    border: 1px solid black;
+    width: 20%;
+    height: 100%;
+}
+
+.interval {
+    margin-right: 50px;
+}

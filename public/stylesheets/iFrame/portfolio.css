@@ -1,0 +1,11 @@
+.portfolio {
+    min-width: 115px;
+    min-height: 115px;
+    max-width: 115px;
+    max-height: 115px;
+    border-radius: 10px;
+}
+
+.interval {
+    margin-right: 50px;
+}
